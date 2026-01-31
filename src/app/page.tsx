@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Landing from "./Landing/page";
+import LandingPage from "./Landing/page";
 
 export default function Home() {
   return (
     <>
-      <Landing />
+      <LandingPage />
     </>
   );
 }

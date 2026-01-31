@@ -6,7 +6,7 @@ import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 import TemplateShowcase from "@/components/ui/TemplateShowcase";
 import FAQSection from "@/components/ui/FAQSection";
 
-export default function Landing() {
+export default function LandingPage() {
   return (
     <main className="min-h-screen px-4 w-full overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-20 pb-16">
