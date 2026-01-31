@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { ArrowRight, CheckCircle2, Code2, Layers, Zap, Terminal, Copy } from "lucide-react"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
@@ -257,21 +258,8 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t py-12 text-center text-muted-foreground bg-background/50 backdrop-blur-sm">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-lg text-primary">Zero UI</span>
-              <span className="text-sm">© 2026</span>
-            </div>
-            <div className="flex gap-8 text-sm font-medium">
-              <a href="#" className="hover:text-foreground transition-colors">License</a>
-              <a href="#" className="hover:text-foreground transition-colors">GitHub</a>
-              <a href="#" className="hover:text-foreground transition-colors">Twitter</a>
-            </div>
-          </div>
-        </footer>
-
+        <Footer />
       </main>
-    </div>
+    </div >
   )
 }

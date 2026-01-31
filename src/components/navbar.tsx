@@ -45,13 +45,31 @@ export function Navbar({
 }: NavbarProps) {
     const [isOpen, setIsOpen] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
+    const [isHidden, setIsHidden] = React.useState(false)
 
     React.useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50)
         }
         window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll)
+
+        // Intersection Observer to hide navbar when footer is visible
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsHidden(entry.isIntersecting)
+            },
+            { threshold: 0.1 } // Trigger when 10% of footer is visible
+        )
+
+        const footer = document.querySelector("footer")
+        if (footer) {
+            observer.observe(footer)
+        }
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+            if (footer) observer.unobserve(footer)
+        }
     }, [])
 
     // Default action with toggle if none provided
@@ -67,6 +85,7 @@ export function Navbar({
         <nav
             className={cn(
                 "fixed top-6 inset-x-0 mx-auto z-50 transition-all duration-700 cubic-bezier(0.25, 0.8, 0.25, 1)",
+                isHidden ? "-translate-y-[200%] opacity-0 pointer-events-none" : "translate-y-0 opacity-100",
                 isOpen
                     ? "w-[90%] max-w-5xl rounded-3xl"
                     : isScrolled
