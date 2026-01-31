@@ -2,84 +2,106 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Command, Github, MoonIcon, SunIcon, ChevronDown, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Command, Github, MoonIcon, SunIcon, ChevronDown, Menu, X, Star } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
+const GITHUB_REPO = "0day-Ashish/zero-ui";
+
 const navLinks = [
+
   {
-    href: "/",
-    label: "Home",
-    subLinks: [],
+    href: "/docs",
+    label: "Docs",
+    subLinks: [
+      { href: "/docs", label: "Getting Started", description: "Setup and installation" },
+      { href: "/docs", label: "Customization", description: "Theming and styling" },
+      { href: "/docs", label: "Advanced Guides", description: "In-depth tutorials" },
+      { href: "/docs", label: "Changelogs", description: "Update logs" },
+    ],
   },
+
+
   {
-    href: "/Components",
+    href: "/components",
     label: "Components",
     subLinks: [
-      { href: "/Components/buttons", label: "Buttons", description: "Interactive button styles" },
-      { href: "/Components/inputs", label: "Inputs", description: "Form input elements" },
-      { href: "/Components/cards", label: "Cards", description: "Content containers" },
-      { href: "/Components/modals", label: "Modals", description: "Dialog overlays" },
-      { href: "/Components/alerts", label: "Alerts", description: "Notification banners" },
-      { href: "/Components/badges", label: "Badges", description: "Status indicators" },
-      { href: "/Components/avatars", label: "Avatars", description: "User profile images" },
-      { href: "/Components/tooltips", label: "Tooltips", description: "Contextual hints" },
-      { href: "/Components/dropdowns", label: "Dropdowns", description: "Selection menus" },
-      { href: "/Components/tabs", label: "Tabs", description: "Content navigation" },
-      { href: "/Components/accordions", label: "Accordions", description: "Collapsible sections" },
-      { href: "/Components/progress", label: "Progress", description: "Loading indicators" },
-      { href: "/Components/sliders", label: "Sliders", description: "Range selectors" },
-      { href: "/Components/switches", label: "Switches", description: "Toggle controls" },
-      { href: "/Components/tables", label: "Tables", description: "Data display grids" },
-      { href: "/Components/pagination", label: "Pagination", description: "Page navigation" },
-      { href: "/Components/breadcrumbs", label: "Breadcrumbs", description: "Path indicators" },
-      { href: "/Components/spinners", label: "Spinners", description: "Loading animations" },
+      { href: "/components/buttons", label: "Buttons", description: "Interactive button styles" },
+      { href: "/components/inputs", label: "Inputs", description: "Form input elements" },
+      { href: "/components/cards", label: "Cards", description: "Content containers" },
+      { href: "/components/modals", label: "Modals", description: "Dialog overlays" },
+      { href: "/components/alerts", label: "Alerts", description: "Notification banners" },
+      { href: "/components/badges", label: "Badges", description: "Status indicators" },
+      { href: "/components/avatars", label: "Avatars", description: "User profile images" },
+      { href: "/components/tooltips", label: "Tooltips", description: "Contextual hints" },
+      { href: "/components/dropdowns", label: "Dropdowns", description: "Selection menus" },
+      { href: "/components/tabs", label: "Tabs", description: "Content navigation" },
+      { href: "/components/accordions", label: "Accordions", description: "Collapsible sections" },
+      { href: "/components/progress", label: "Progress", description: "Loading indicators" },
+      { href: "/components/sliders", label: "Sliders", description: "Range selectors" },
+      { href: "/components/switches", label: "Switches", description: "Toggle controls" },
+      { href: "/components/tables", label: "Tables", description: "Data display grids" },
+      { href: "/components/pagination", label: "Pagination", description: "Page navigation" },
+      { href: "/components/breadcrumbs", label: "Breadcrumbs", description: "Path indicators" },
+      { href: "/components/spinners", label: "Spinners", description: "Loading animations" },
     ],
   },
   {
-    href: "/Blocks",
+    href: "/blocks",
     label: "Blocks",
     subLinks: [
-      { href: "/Blocks/hero", label: "Hero Sections", description: "Landing page headers" },
-      { href: "/Blocks/features", label: "Features", description: "Feature showcases" },
-      { href: "/Blocks/pricing", label: "Pricing", description: "Pricing tables" },
-      { href: "/Blocks/testimonials", label: "Testimonials", description: "Customer reviews" },
-      { href: "/Blocks/cta", label: "Call to Action", description: "Conversion sections" },
-      { href: "/Blocks/faq", label: "FAQ", description: "Question answers" },
-      { href: "/Blocks/team", label: "Team", description: "Member profiles" },
-      { href: "/Blocks/stats", label: "Statistics", description: "Number highlights" },
-      { href: "/Blocks/newsletter", label: "Newsletter", description: "Email signups" },
-      { href: "/Blocks/contact", label: "Contact", description: "Contact forms" },
-      { href: "/Blocks/footers", label: "Footers", description: "Page footers" },
-      { href: "/Blocks/headers", label: "Headers", description: "Navigation bars" },
+      { href: "/blocks/hero", label: "Hero Sections", description: "Landing page headers" },
+      { href: "/blocks/features", label: "Features", description: "Feature showcases" },
+      { href: "/blocks/pricing", label: "Pricing", description: "Pricing tables" },
+      { href: "/blocks/testimonials", label: "Testimonials", description: "Customer reviews" },
+      { href: "/blocks/cta", label: "Call to Action", description: "Conversion sections" },
+      { href: "/blocks/faq", label: "FAQ", description: "Question answers" },
+      { href: "/blocks/team", label: "Team", description: "Member profiles" },
+      { href: "/blocks/stats", label: "Statistics", description: "Number highlights" },
+      { href: "/blocks/newsletter", label: "Newsletter", description: "Email signups" },
+      { href: "/blocks/contact", label: "Contact", description: "Contact forms" },
+      { href: "/blocks/footers", label: "Footers", description: "Page footers" },
+      { href: "/blocks/headers", label: "Headers", description: "Navigation bars" },
     ],
   },
   {
-    href: "/Mobile",
+    href: "/mobile",
     label: "Mobile",
     subLinks: [
-      { href: "/Mobile/navigation", label: "Navigation", description: "Mobile nav patterns" },
-      { href: "/Mobile/bottom-sheets", label: "Bottom Sheets", description: "Slide-up panels" },
-      { href: "/Mobile/gestures", label: "Gestures", description: "Touch interactions" },
-      { href: "/Mobile/tab-bars", label: "Tab Bars", description: "Bottom navigation" },
-      { href: "/Mobile/action-sheets", label: "Action Sheets", description: "Option menus" },
-      { href: "/Mobile/pull-refresh", label: "Pull to Refresh", description: "Content refresh" },
-      { href: "/Mobile/swipe-actions", label: "Swipe Actions", description: "Swipe gestures" },
-      { href: "/Mobile/floating-buttons", label: "FAB", description: "Floating actions" },
-      { href: "/Mobile/onboarding", label: "Onboarding", description: "App intros" },
+      { href: "/mobile/navigation", label: "Navigation", description: "Mobile nav patterns" },
+      { href: "/mobile/bottom-sheets", label: "Bottom Sheets", description: "Slide-up panels" },
+      { href: "/mobile/gestures", label: "Gestures", description: "Touch interactions" },
+      { href: "/mobile/tab-bars", label: "Tab Bars", description: "Bottom navigation" },
+      { href: "/mobile/action-sheets", label: "Action Sheets", description: "Option menus" },
+      { href: "/mobile/pull-refresh", label: "Pull to Refresh", description: "Content refresh" },
+      { href: "/mobile/swipe-actions", label: "Swipe Actions", description: "Swipe gestures" },
+      { href: "/mobile/floating-buttons", label: "FAB", description: "Floating actions" },
+      { href: "/mobile/onboarding", label: "Onboarding", description: "App intros" },
     ],
   },
   {
-    href: "/Showcase",
+    href: "/showcase",
     label: "Showcase",
     subLinks: [
-      { href: "/Showcase/websites", label: "Websites", description: "Built with ZeroUI" },
-      { href: "/Showcase/apps", label: "Apps", description: "Mobile applications" },
-      { href: "/Showcase/dashboards", label: "Dashboards", description: "Admin panels" },
-      { href: "/Showcase/ecommerce", label: "E-commerce", description: "Online stores" },
-      { href: "/Showcase/saas", label: "SaaS", description: "Software products" },
-      { href: "/Showcase/portfolios", label: "Portfolios", description: "Personal sites" },
-      { href: "/Showcase/submit", label: "Submit Yours", description: "Share your project" },
+      { href: "/showcase/websites", label: "Websites", description: "Built with ZeroUI" },
+      { href: "/showcase/apps", label: "Apps", description: "Mobile applications" },
+      { href: "/showcase/dashboards", label: "Dashboards", description: "Admin panels" },
+      { href: "/showcase/ecommerce", label: "E-commerce", description: "Online stores" },
+      { href: "/showcase/saas", label: "SaaS", description: "Software products" },
+      { href: "/showcase/portfolios", label: "Portfolios", description: "Personal sites" },
+      { href: "/showcase/submit", label: "Submit Yours", description: "Share your project" },
+    ],
+  },
+    {
+    href: "/templates",
+    label: "Templates",
+    subLinks: [
+      { href: "/templates/ecommerce", label: "E-commerce", description: "Online store templates" },
+      { href: "/templates/landing", label: "Landing Pages", description: "Marketing page templates" },
+      { href: "/templates/dashboard", label: "Dashboards", description: "Admin panel templates" },
+      { href: "/templates/portfolio", label: "Portfolios", description: "Personal portfolio templates" },
+      { href: "/templates/blog", label: "Blogs", description: "Blog and magazine templates" },
+      { href: "/templates/saas", label: "SaaS", description: "Software product templates" },
     ],
   },
 ];
@@ -95,6 +117,22 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileActiveDropdown, setMobileActiveDropdown] = useState<string | null>(null);
+  const [stars, setStars] = useState<number | null>(null);
+
+  useEffect(() => {
+    async function fetchStars() {
+      try {
+        const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}`);
+        if (res.ok) {
+          const data = await res.json();
+          setStars(data.stargazers_count);
+        }
+      } catch (error) {
+        console.error("Failed to fetch GitHub stars:", error);
+      }
+    }
+    fetchStars();
+  }, []);
 
   return (
     <nav
@@ -150,7 +188,9 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:inline-flex ml-4 items-center gap-2 px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 rounded-md text-sm text-zinc-700 dark:text-gray-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 cursor-pointer">
-            <Github size={16} /> Stars on Github
+            <Github size={16} /> 
+            <Star size={14} className="fill-current text-amber-300" />
+            {stars !== null ? stars.toLocaleString() : "—"}
           </div>
 
           <button

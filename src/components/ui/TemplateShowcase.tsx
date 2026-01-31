@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import BrowserMockup from "@/components/ui/windowmockup";
+import Link from "next/link";
 
 const templates = [
   {
@@ -189,13 +190,13 @@ export default function TemplateShowcase() {
         </p>
 
         {/* CTA Button */}
-        <button
-          onClick={handleNext}
+        <Link
+          href="/templates"
           className="group flex items-center gap-2 px-6 py-3 bg-zinc-100 dark:bg-gray-950 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] text-black dark:text-white rounded-md border-2 border-zinc-300 dark:border-white/10 text-sm font-medium hover:bg-zinc-200 dark:hover:bg-gray-800 transition-all cursor-pointer"
         >
           Explore Templates
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </button>
+        </Link>
 
         {/* Dots indicator */}
         <div className="flex items-center justify-center gap-2 mt-4">

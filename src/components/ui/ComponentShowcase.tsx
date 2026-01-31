@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 // Individual component cards with light/dark theme support
 const WebComponents = [
@@ -532,10 +533,10 @@ export default function ComponentShowcase() {
 
       {/* Explore button */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
-        <button className="group flex items-center gap-2 px-6 py-3 bg-zinc-100 text-black dark:text-white dark:bg-gray-950 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] rounded-md border-2 border-zinc-300 dark:border-white/10 text-sm font-medium hover:bg-zinc-200 dark:hover:bg-gray-800 transition-all hover:shadow-[inset_0_0_15px_rgba(0,0,0,0.7)] cursor-pointer">
+        <Link href="/components" className="group flex items-center gap-2 px-6 py-3 bg-zinc-100 text-black dark:text-white dark:bg-gray-950 shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] rounded-md border-2 border-zinc-300 dark:border-white/10 text-sm font-medium hover:bg-zinc-200 dark:hover:bg-gray-800 transition-all hover:shadow-[inset_0_0_15px_rgba(0,0,0,0.7)] cursor-pointer">
           Explore All Components
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </button>
+        </Link>
       </div>
     </div>
   );

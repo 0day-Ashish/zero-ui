@@ -5,6 +5,7 @@ import ComponentShowcase from "@/components/ui/ComponentShowcase";
 import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 import TemplateShowcase from "@/components/ui/TemplateShowcase";
 import FAQSection from "@/components/ui/FAQSection";
+import WaitlistButton from "@/components/ui/WaitlistButton";
 
 export default function LandingPage() {
   return (
@@ -14,12 +15,7 @@ export default function LandingPage() {
         <div className="flex flex-col justify-start gap-8 text-start max-w-3xl">
           {/* Announcement Pill */}
           <div className="flex">
-            <a href="#" className="group flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-900 rounded-full border border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 transition-all cursor-pointer">
-              <span className="text-sm text-zinc-700 dark:text-zinc-300">Version 1 Launching</span>
-              <svg className="w-4 h-4 text-zinc-500 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+            <WaitlistButton />
           </div>
 
           <h1 className="text-4xl lg:text-6xl font-medium tracking-tighter ">
@@ -31,24 +27,12 @@ export default function LandingPage() {
 
           {/* Technology Logos */}
           <div className="flex items-center gap-4">
-            <div className="transition-all duration-300 cursor-pointer">
-              <Image src="/icons/react.png" alt="React" width={40} height={40} className="rounded object-cover border-2 border-zinc-300 dark:border-white/20 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]" />
-            </div>
-            <div className="transition-all duration-300 cursor-pointer">
-              <Image src="/icons/typescript.png" alt="TypeScript" width={40} height={40} className="rounded object-cover border-2 border-zinc-300 dark:border-white/20 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]" />
-            </div>
-            <div className="rounded-lg transition-all duration-300 cursor-pointer">
-              <Image src="/icons/nextjs.jpeg" alt="Next.js" width={40} height={40} className="rounded object-cover border-2 border-zinc-300 dark:border-white/20 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]" />
-            </div>
-            <div className="transition-all duration-300 cursor-pointer">
-              <Image src="/icons/tailwindcss.jpeg" alt="Tailwind CSS" width={40} height={40} className="rounded object-cover border-2 border-zinc-300 dark:border-white/20 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]" />
-            </div>
-            <div className="transition-all duration-300 cursor-pointer">
-              <Image src="/icons/framer.jpeg" alt="Framer Motion" width={40} height={40} className="rounded object-cover border-2 border-zinc-300 dark:border-white/20 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]" />
-            </div>
-            <div className="transition-all duration-300 cursor-pointer">
-              <Image src="/icons/gsap.svg" alt="GSAP" width={40} height={40} className="rounded object-cover border-2 border-zinc-300 dark:border-white/20 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]" />
-            </div>
+            <Image src="/icons/react.svg" alt="React" width={40} height={40} />
+            <Image src="/icons/typescript.png" alt="TypeScript" width={40} height={40} />
+            <Image src="/icons/nextjs.svg" alt="Next.js" width={40} height={40} />
+            <Image src="/icons/tailwind.svg" alt="Tailwind CSS" width={40} height={40} />
+            <Image src="/icons/motion.svg" alt="Motion" width={40} height={40} />
+           
           </div>
 
           <div className="flex gap-4">
