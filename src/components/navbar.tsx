@@ -34,7 +34,7 @@ export function Navbar({
     className,
     logo = <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">Zero</span>,
     menuItems = [
-        { label: "Features", href: "#" },
+        { label: "Showcase", href: "#" },
         { label: "Components", href: "#" },
         { label: "Pricing", href: "#" },
         { label: "Docs", href: "#" },

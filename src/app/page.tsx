@@ -15,6 +15,7 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
+
     <div className="min-h-screen bg-background relative selection:bg-primary/20 overflow-hidden font-sans">
       {/* Noise Overlay */}
       <div className="fixed inset-0 z-[100] w-full h-full bg-noise pointer-events-none mix-blend-overlay"></div>
