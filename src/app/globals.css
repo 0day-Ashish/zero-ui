@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'Nuqun';
+  src: url('/font/Nuqun-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --font-nuqun: 'Nuqun', sans-serif;
+}
+
+/* Light mode (default) */
+html.light {
   --background: #ffffff;
   --foreground: #171717;
+  --card-bg: #f4f4f5;
+  --card-border: #e4e4e7;
+  --muted: #71717a;
+  --muted-foreground: #a1a1aa;
+}
+
+/* Dark mode */
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --card-bg: #18181b;
+  --card-border: #27272a;
+  --muted: #a1a1aa;
+  --muted-foreground: #71717a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-nuqun: 'Nuqun', sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Theme toggle blur transition - targets main content and footer, not navbar */
+body.theme-transitioning main,
+body.theme-transitioning footer {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
+main,
+footer {
+  transition: filter 0.3s ease;
+}
+
+.font-nuqun {
+  font-family: var(--font-nuqun);
+}
+
+/* Marquee animations for component showcase */
+@keyframes marquee {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse linear infinite;
+}
+
+/* Horizontal marquee animations for testimonials */
+@keyframes marquee-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes marquee-horizontal-reverse {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-horizontal {
+  animation: marquee-horizontal linear infinite;
+}
+
+.animate-marquee-horizontal-reverse {
+  animation: marquee-horizontal-reverse linear infinite;
+}
+
+/* Terminal cursor blink animation */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
 }
