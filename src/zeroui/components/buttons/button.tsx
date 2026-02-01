@@ -16,13 +16,13 @@ export default function Button({
   ...props
 }: ButtonBasicProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+    "cursor-pointer active:scale-95 inline-flex items-center justify-center font-medium rounded-3xl transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:pointer-events-none";
 
   const variants = {
     default:
       "bg-zinc-900 text-white hover:bg-zinc-800 focus:ring-zinc-900 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 dark:focus:ring-white",
     outline:
-      "border-2 border-zinc-900 text-zinc-900 hover:bg-zinc-100 focus:ring-zinc-900 dark:border-white dark:text-white dark:hover:bg-zinc-800 dark:focus:ring-white",
+      "border-1 border-zinc-900/20 text-zinc-900 hover:bg-zinc-100 focus:ring-zinc-900 dark:border-white dark:text-white dark:hover:bg-zinc-800 dark:focus:ring-white",
     ghost:
       "text-zinc-900 hover:bg-zinc-100 focus:ring-zinc-500 dark:text-white dark:hover:bg-zinc-800",
     destructive:
@@ -32,9 +32,9 @@ export default function Button({
   };
 
   const sizes = {
-    sm: "px-3 py-1.5 text-sm",
-    md: "px-4 py-2 text-sm",
-    lg: "px-6 py-3 text-base",
+    sm: "px-4 py-1.5 text-sm",
+    md: "px-6 py-2 text-sm",
+    lg: "px-10 py-2 text-base",
   };
 
   return (

@@ -5,6 +5,7 @@ import {
   ComponentPageLayout,
   ComponentPreview,
   InstallationTabs,
+  PropsTable,
 } from "@/components/component-page";
 import { Button } from "@/zeroui/components/buttons";
 
@@ -144,6 +145,17 @@ export default function ButtonsPage() {
         componentName="button-basic"
         dependencies={[]}
         manualSteps={manualSteps}
+      />
+
+      {/* Props */}
+      <PropsTable
+        props={[
+          { name: "variant", type: '"default" | "outline" | "ghost" | "destructive" | "link"', default: '"default"' },
+          { name: "size", type: '"sm" | "md" | "lg"', default: '"md"' },
+          { name: "children", type: "ReactNode", default: "-" },
+          { name: "className", type: "string", default: '""' },
+          { name: "disabled", type: "boolean", default: "false" },
+        ]}
       />
     </ComponentPageLayout>
   );
