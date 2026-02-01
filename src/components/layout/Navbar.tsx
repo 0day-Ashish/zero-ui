@@ -124,6 +124,12 @@ export default function Navbar() {
   const openSearch = useCallback(() => setSearchOpen(true), []);
   const closeSearch = useCallback(() => setSearchOpen(false), []);
 
+  // Close dropdown on route change
+  useEffect(() => {
+    setActiveDropdown(null);
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   // Keyboard shortcut for search (Cmd/Ctrl + K)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -251,7 +257,7 @@ export default function Navbar() {
               .find((link) => link.label === activeDropdown)
               ?.subLinks.map((subLink) => (
                 <Link
-                  key={subLink.href}
+                  key={subLink.label}
                   href={subLink.href}
                   className="group py-2 px-3 relative"
                 >
@@ -333,7 +339,7 @@ export default function Navbar() {
                       >
                         <ul className="pl-4 py-2 space-y-1">
                           {link.subLinks.map((subLink) => (
-                            <li key={subLink.href}>
+                            <li key={subLink.label}>
                               <Link
                                 href={subLink.href}
                                 onClick={() => setMobileMenuOpen(false)}
