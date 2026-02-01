@@ -90,7 +90,7 @@ export default function LandingPage() {
             Meet the <span className="text-zinc-900 dark:text-white font-semibold">Devs</span>
           </h1>
           <span className="text-zinc-500 dark:text-zinc-400">
-                We build ZeroUI with ❤️ from India.
+                Made with ❤️ for devs by devs.
           </span>
         </div>
 

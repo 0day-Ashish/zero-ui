@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Command, Github, MoonIcon, SunIcon, ChevronDown, Menu, X, Star } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import SearchModal from "@/components/ui/SearchModal";
 
 const GITHUB_REPO = "0day-Ashish/zero-ui";
 
@@ -118,6 +119,23 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileActiveDropdown, setMobileActiveDropdown] = useState<string | null>(null);
   const [stars, setStars] = useState<number | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const openSearch = useCallback(() => setSearchOpen(true), []);
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
+
+  // Keyboard shortcut for search (Cmd/Ctrl + K)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   useEffect(() => {
     async function fetchStars() {
@@ -177,15 +195,15 @@ export default function Navbar() {
         </ul>
 
         <div className="flex-1 flex justify-end items-center">
-          <div className="hidden md:flex relative items-center">
-            <input
-              placeholder="Search components..."
-              className="bg-zinc-100 dark:bg-zinc-900 text-foreground px-3 py-1.5 pr-16 rounded-md text-sm w-64 focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-700"
-            />
+          <button
+            onClick={openSearch}
+            className="hidden md:flex relative items-center bg-zinc-100 dark:bg-zinc-900 px-3 py-1.5 pr-16 rounded-md text-sm w-64 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+          >
+            <span className="text-zinc-400">Search components...</span>
             <kbd className="absolute right-2 px-1.5 py-0.5 text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded border border-zinc-300 dark:border-zinc-700 inline-flex items-center gap-0.5">
               {isMac ? <Command size={12} /> : "Ctrl"} K
             </kbd>
-          </div>
+          </button>
 
           <div className="hidden md:inline-flex ml-4 items-center gap-2 px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 rounded-md text-sm text-zinc-700 dark:text-gray-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 cursor-pointer">
             <Github size={16} /> 
@@ -267,15 +285,18 @@ export default function Navbar() {
         >
           <div className="p-6">
             {/* Search */}
-            <div className="relative mb-6">
-              <input
-                placeholder="Search components..."
-                className="w-full bg-zinc-100 dark:bg-zinc-900 text-foreground px-3 py-2 pr-16 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-700"
-              />
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openSearch();
+              }}
+              className="relative mb-6 w-full flex items-center bg-zinc-100 dark:bg-zinc-900 px-3 py-2 pr-16 rounded-md text-sm hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+            >
+              <span className="text-zinc-400">Search components...</span>
               <kbd className="absolute right-2 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded border border-zinc-300 dark:border-zinc-700 inline-flex items-center gap-0.5">
                 {isMac ? <Command size={12} /> : "Ctrl"} K
               </kbd>
-            </div>
+            </button>
 
             {/* Navigation links */}
             <ul className="space-y-2">
@@ -354,6 +375,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Search Modal */}
+      <SearchModal isOpen={searchOpen} onClose={closeSearch} />
     </nav>
   );
 }
