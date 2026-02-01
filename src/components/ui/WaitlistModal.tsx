@@ -10,19 +10,49 @@ interface WaitlistModalProps {
 
 export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setSubmitted(true);
+    if (!email) return;
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setStatus("success");
       setEmail("");
+    } catch (error: any) {
+      console.error(error);
+      setStatus("error");
+      setErrorMessage(error.message);
     }
   };
 
   const handleClose = () => {
     onClose();
-    setSubmitted(false);
+    // Reset state after a delay or immediately if desired
+    if (status === "success") {
+      setTimeout(() => setStatus("idle"), 500);
+    } else {
+      setStatus("idle");
+      setErrorMessage("");
+    }
   };
 
   if (!isOpen) return null;
@@ -36,7 +66,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
       />
 
       {/* Modal content */}
-      <div className="relative p-8 w-full max-w-md mx-4">
+      <div className="relative p-8 w-full max-w-md mx-4 bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl">
         {/* Close button */}
         <button
           onClick={handleClose}
@@ -59,10 +89,13 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
           </p>
         </div>
 
-        {submitted ? (
-          <div className="text-center">
-            <p className="text-emerald-400 font-medium">
-              You&apos;re on the list! We&apos;ll notify you when we launch.
+        {status === "success" ? (
+          <div className="text-center animate-in fade-in zoom-in duration-300">
+            <p className="text-emerald-400 font-medium text-lg mb-2">
+              You&apos;re on the list!
+            </p>
+            <p className="text-zinc-400 text-sm">
+              We&apos;ll notify you when we launch.
             </p>
           </div>
         ) : (
@@ -75,20 +108,25 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 placeholder="Enter your email"
                 required
                 autoFocus
-                className="w-full px-4 py-3 bg-transparent border-b border-zinc-600 text-white placeholder:text-zinc-500 focus:outline-none focus:border-zinc-400 transition-all"
+                disabled={status === "loading"}
+                className="w-full px-4 py-3 bg-zinc-800/50 border-b border-zinc-600 text-white placeholder:text-zinc-500 focus:outline-none focus:border-zinc-400 transition-all rounded-t-lg disabled:opacity-50"
               />
             </div>
+            {status === "error" && (
+              <p className="text-red-400 text-sm">{errorMessage || "Something went wrong"}</p>
+            )}
             <button
               type="submit"
-              className="w-full px-4 py-3 bg-white text-zinc-900 font-medium rounded-lg hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2"
+              disabled={status === "loading"}
+              className="w-full px-4 py-3 bg-white text-zinc-900 font-medium rounded-lg hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Join Waitlist
-              <ArrowRight size={16} />
+              {status === "loading" ? "Joining..." : "Join Waitlist"}
+              {!status && <ArrowRight size={16} />}
             </button>
           </form>
         )}
 
-        <p className="mt-4 text-xs text-zinc-500 text-center">
+        <p className="mt-6 text-xs text-zinc-500 text-center">
           No spam. Unsubscribe anytime.
         </p>
       </div>
