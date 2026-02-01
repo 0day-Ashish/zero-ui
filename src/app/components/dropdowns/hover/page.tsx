@@ -151,7 +151,7 @@ export function HoverDropdown() {
             Includes a small delay before closing to prevent accidental closures when moving the mouse.
           </p>
           <ComponentPreview code={hoverCode}>
-            <div className="flex flex-wrap gap-8 justify-center p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
+            <div className="flex flex-wrap gap-8 justify-center items-start min-h-[350px] p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
                   <Button variant="secondary" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
@@ -204,7 +204,7 @@ export function HoverDropdown() {
             Use <code>animation="bounce"</code> for a playful, physics-based opening animation. Perfect for more casual or creative interfaces.
           </p>
           <ComponentPreview code={bounceCode}>
-             <div className="flex flex-wrap gap-8 justify-center p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
+             <div className="flex flex-wrap gap-8 justify-center items-start min-h-[250px] p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
                   <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
@@ -250,7 +250,7 @@ export function HoverDropdown() {
     <DropdownItem>Item 3</DropdownItem>
   </DropdownMenu>
 </Dropdown>`}>
-             <div className="flex justify-center p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
+             <div className="flex justify-center items-start min-h-[300px] p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
                   <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
@@ -484,7 +484,7 @@ export function DropdownItem({
         <span className="font-medium opacity-90">{children}</span>
       </span>
       {shortcut && (
-        <span className="ml-auto text-xs font-mono tracking-tighter text-zinc-400 opacity-60 group-hover:opacity-100 transition-opacity dark:text-zinc-500">
+        <span className="ml-auto inline-flex items-center justify-center gap-1 text-xs font-medium font-mono tracking-widest text-zinc-500 dark:text-zinc-400">
           {shortcut}
         </span>
       )}

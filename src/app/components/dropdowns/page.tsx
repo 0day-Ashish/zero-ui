@@ -296,7 +296,8 @@ export function DropdownSeparator({ className = "" }: { className?: string }) {
             Basic Usage
           </h2>
           <ComponentPreview code={basicCode}>
-            <Dropdown>
+            <div className="flex items-start justify-center min-h-[300px]">
+             <Dropdown>
               <DropdownTrigger>
                 <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                   My Account
@@ -325,6 +326,7 @@ export function DropdownSeparator({ className = "" }: { className?: string }) {
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
+           </div>
           </ComponentPreview>
         </div>
 

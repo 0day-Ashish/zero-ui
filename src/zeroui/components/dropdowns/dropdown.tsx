@@ -230,7 +230,7 @@ export function DropdownItem({
         <span className="font-medium opacity-90">{children}</span>
       </span>
       {shortcut && (
-        <span className="ml-auto text-xs font-mono tracking-tighter text-zinc-400 opacity-60 group-hover:opacity-100 transition-opacity dark:text-zinc-500">
+        <span className="ml-auto inline-flex items-center justify-center gap-1 text-xs font-medium font-mono tracking-widest text-zinc-500 dark:text-zinc-400">
           {shortcut}
         </span>
       )}
