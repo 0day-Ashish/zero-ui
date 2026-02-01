@@ -59,44 +59,74 @@ export default function ComponentPageLayout({
             {sidebarSections.map((section) => (
               <div key={section.title}>
                 <h3 className="text-sm text-zinc-500 dark:text-zinc-500 mb-3">{section.title}</h3>
-                <nav className="space-y-0.5">
-                  {section.items.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="flex items-center gap-2 px-3 py-1.5 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                    >
-                      {item.name}
-                      {item.isNew && (
-                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                      )}
-                    </Link>
-                  ))}
+                <nav className="relative pl-3">
+                  {/* Vertical connecting line */}
+                  <div className="absolute left-0 top-3 bottom-3 w-px bg-zinc-200 dark:bg-zinc-800" />
+
+                  <div className="space-y-0">
+                    {section.items.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="relative flex items-center gap-2 pl-4 pr-3 py-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors group"
+                      >
+                        {item.name}
+                        {item.isNew && (
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                        )}
+                      </Link>
+                    ))}
+                  </div>
                 </nav>
               </div>
             ))}
 
             {/* Component Items */}
-            {componentItems.length > 0 && (
-              <div>
-                <h3 className="text-sm text-zinc-500 dark:text-zinc-500 mb-3">Components</h3>
-                <nav className="space-y-0.5">
-                  {componentItems.map((item) => (
-                    <Link
-                      key={item.id}
-                      href={item.href}
-                      className={`block px-3 py-1.5 text-sm transition-colors rounded-md ${
-                        item.id === activeComponentId
-                          ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white"
-                          : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            )}
+            {componentItems.length > 0 && (() => {
+              const activeIndex = componentItems.findIndex(item => item.id === activeComponentId);
+              return (
+                <div>
+                  <h3 className="text-sm text-zinc-500 dark:text-zinc-500 mb-3">Components</h3>
+                  <nav className="relative pl-3">
+                    {/* Base vertical line (gray) */}
+                    <div className="absolute left-0 top-3 bottom-3 w-px bg-zinc-200 dark:bg-zinc-800" />
+
+                    <div className="space-y-0">
+                      {componentItems.map((item, index) => {
+                        const isActive = item.id === activeComponentId;
+                        const isBeforeActive = activeIndex >= 0 && index < activeIndex;
+                        const isFirst = index === 0;
+                        return (
+                          <Link
+                            key={item.id}
+                            href={item.href}
+                            className={`relative flex items-center pl-4 pr-3 py-2 text-sm transition-colors group ${
+                              isActive
+                                ? "text-zinc-900 dark:text-white font-medium"
+                                : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                            }`}
+                          >
+                            {/* Highlighted vertical segment for items before active */}
+                            {isBeforeActive && (
+                              <span
+                                className={`absolute -left-3 w-px bg-zinc-900 dark:bg-white ${
+                                  isFirst ? "-top-3" : "top-0"
+                                } bottom-0`}
+                              />
+                            )}
+                            {/* Curved branch - only for active item */}
+                            {isActive && (
+                              <span className="absolute -left-3 top-0 w-3 h-1/2 border-l border-b rounded-bl-lg border-zinc-900 dark:border-white" />
+                            )}
+                            {item.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </nav>
+                </div>
+              );
+            })()}
           </div>
         </aside>
 
