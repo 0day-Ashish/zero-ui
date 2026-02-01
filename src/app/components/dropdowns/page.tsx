@@ -298,7 +298,7 @@ export function DropdownSeparator({ className = "" }: { className?: string }) {
           <ComponentPreview code={basicCode}>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="outline" className="gap-2">
+                <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                   My Account
                   <ChevronDown className="h-4 w-4 opacity-50" />
                 </Button>
@@ -339,7 +339,7 @@ export function DropdownSeparator({ className = "" }: { className?: string }) {
             <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
               <Dropdown>
                 <DropdownTrigger>
-                  <Button variant="outline">Left Align</Button>
+                  <Button variant="outline" className="border-2 border-zinc-800/20 dark:border-white/20">Left Align</Button>
                 </DropdownTrigger>
                 <DropdownMenu align="left">
                   <DropdownItem icon={<User />}>Profile</DropdownItem>
@@ -349,7 +349,7 @@ export function DropdownSeparator({ className = "" }: { className?: string }) {
 
               <Dropdown>
                 <DropdownTrigger>
-                  <Button variant="outline">Center Align</Button>
+                  <Button variant="outline" className="border-2 border-zinc-800/20 dark:border-white/20">Center Align</Button>
                 </DropdownTrigger>
                 <DropdownMenu align="center">
                   <DropdownItem icon={<User />}>Profile</DropdownItem>
@@ -359,7 +359,7 @@ export function DropdownSeparator({ className = "" }: { className?: string }) {
 
               <Dropdown>
                 <DropdownTrigger>
-                  <Button variant="outline">Right Align</Button>
+                  <Button variant="outline" className="border-2 border-zinc-800/20 dark:border-white/20">Right Align</Button>
                 </DropdownTrigger>
                 <DropdownMenu align="right">
                   <DropdownItem icon={<User />}>Profile</DropdownItem>

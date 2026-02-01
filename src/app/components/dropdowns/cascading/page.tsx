@@ -112,7 +112,7 @@ export function CascadingMenu() {
             <div className="flex justify-center p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
                 <Dropdown>
                     <DropdownTrigger>
-                        <Button variant="outline" className="gap-2">
+                        <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                         File Options <ChevronDown className="h-4 w-4" />
                         </Button>
                     </DropdownTrigger>

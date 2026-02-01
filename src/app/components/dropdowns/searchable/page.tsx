@@ -315,7 +315,7 @@ export function DropdownSearchInput({ className = "", ...props }: DropdownSearch
           <ComponentPreview code={searchableCode}>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="outline" className="w-56 justify-between text-zinc-700 dark:text-zinc-300">
+                <Button variant="outline" className="w-56 justify-between text-zinc-700 dark:text-zinc-300 border-2 border-zinc-800/20 dark:border-white/20">
                   {languages.find((l) => l.value === selected)?.label || "Select Language"}
                   <ChevronDown className="h-4 w-4 opacity-50" />
                 </Button>
@@ -364,7 +364,7 @@ export function DropdownSearchInput({ className = "", ...props }: DropdownSearch
           <ComponentPreview code={commandMenuCode}>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="outline" className="w-[280px] justify-between text-zinc-600 dark:text-zinc-400">
+                <Button variant="outline" className="w-[280px] justify-between text-zinc-600 dark:text-zinc-400 border-2 border-zinc-800/20 dark:border-white/20">
                   <span className="flex items-center gap-2">
                     <Search className="h-4 w-4" />
                     Switch Workspace...
@@ -412,7 +412,7 @@ export function DropdownSearchInput({ className = "", ...props }: DropdownSearch
           <ComponentPreview code={userPickerCode}>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="outline" className="gap-2">
+                <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                   <User className="h-4 w-4" />
                   Assign User
                   <ChevronDown className="h-4 w-4 opacity-50" />

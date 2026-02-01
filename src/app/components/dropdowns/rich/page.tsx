@@ -434,7 +434,7 @@ export function DropdownUserHeader({
           <ComponentPreview code={productsCode}>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="ghost" className="gap-2 font-medium">
+                <Button variant="outline" className="gap-2 font-medium border-2 border-zinc-800/20 dark:border-white/20">
                   Products
                   <ChevronDown className="h-4 w-4 opacity-50" />
                 </Button>
@@ -471,7 +471,7 @@ export function DropdownUserHeader({
           <ComponentPreview code={userProfileCode}>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="outline" className="gap-2 rounded-full pl-2 pr-4">
+                <Button variant="outline" className="gap-2 rounded-full pl-2 pr-4 border-2 border-zinc-800/20 dark:border-white/20">
                   <div className="h-6 w-6 rounded-full bg-zinc-200 dark:bg-zinc-800" />
                   <span className="text-sm font-medium">Samuel</span>
                   <ChevronDown className="h-4 w-4 opacity-50" />
@@ -504,7 +504,7 @@ export function DropdownUserHeader({
           <ComponentPreview code={teamSwitcherCode}>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="outline" className="w-[200px] justify-between">
+                <Button variant="outline" className="w-[200px] justify-between border-2 border-zinc-800/20 dark:border-white/20">
                   <span className="flex items-center gap-2">
                     <Building className="h-4 w-4" />
                     Acme Inc.
@@ -543,7 +543,7 @@ export function DropdownUserHeader({
           <ComponentPreview code={interactiveCode}>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="outline" className="gap-2">
+                <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                   <SlidersHorizontal className="h-4 w-4" />
                   Preferences
                 </Button>

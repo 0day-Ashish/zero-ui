@@ -154,7 +154,7 @@ export function HoverDropdown() {
             <div className="flex flex-wrap gap-8 justify-center p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
-                  <Button variant="secondary" className="gap-2">
+                  <Button variant="secondary" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                     Products <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownTrigger>
@@ -168,7 +168,7 @@ export function HoverDropdown() {
 
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
-                  <Button className="gap-2">
+                  <Button className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                     My Dashboard <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownTrigger>
@@ -207,7 +207,7 @@ export function HoverDropdown() {
              <div className="flex flex-wrap gap-8 justify-center p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
-                  <Button variant="outline" className="gap-2">
+                  <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                     Bounce <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownTrigger>
@@ -253,7 +253,7 @@ export function HoverDropdown() {
              <div className="flex justify-center p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
-                  <Button variant="outline" className="gap-2">
+                  <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                     Staggered <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownTrigger>
