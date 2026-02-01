@@ -96,6 +96,50 @@ footer {
   animation: marquee-reverse linear infinite;
 }
 
+/* Dropdown Bounce Animation */
+@keyframes dropdown-bounce {
+  0% {
+    transform: scaleY(0.6);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleY(1.1);
+    opacity: 1;
+  }
+  70% {
+    transform: scaleY(0.95);
+  }
+  85% {
+    transform: scaleY(1.03);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-dropdown-bounce {
+  transform-origin: top;
+  animation: dropdown-bounce 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Staggered Item Animation */
+@keyframes menu-item-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-menu-item-slide-in {
+  opacity: 0;
+  animation: menu-item-slide-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
 /* Horizontal marquee animations for testimonials */
 @keyframes marquee-horizontal {
   0% {
