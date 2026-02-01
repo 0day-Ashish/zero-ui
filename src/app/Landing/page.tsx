@@ -6,6 +6,7 @@ import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 import TemplateShowcase from "@/components/ui/TemplateShowcase";
 import FAQSection from "@/components/ui/FAQSection";
 import WaitlistButton from "@/components/ui/WaitlistButton";
+import Link from "next/link";
 
 export default function LandingPage() {
   return (
@@ -36,12 +37,12 @@ export default function LandingPage() {
           </div>
 
           <div className="flex gap-4">
-            <button className="px-4 py-2 border-2 border-zinc-300 dark:border-white/10 rounded-md cursor-pointer active:scale-95 bg-zinc-900 dark:bg-zinc-900 text-white hover:bg-zinc-800 dark:hover:bg-zinc-800 transition-colors shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]">
+            <Link href="/components" className="px-4 py-2 border-2 border-zinc-300 dark:border-white/10 rounded-md cursor-pointer active:scale-95 bg-zinc-900 dark:bg-zinc-900 text-white hover:bg-zinc-800 dark:hover:bg-zinc-800 transition-colors shadow-[inset_0_0_10px_rgba(0,0,0,0.5)]">
               Browse Components
-            </button>
-            <button className="px-4 py-2 border-2 border-zinc-300 dark:border-white/10 rounded-md cursor-pointer active:scale-95 shadow-[inset_0_0_5px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_0_5px_rgba(255,255,255,0.1)] hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors text-foreground">
+            </Link>
+            <Link href="/docs" className="px-4 py-2 border-2 border-zinc-300 dark:border-white/10 rounded-md cursor-pointer active:scale-95 shadow-[inset_0_0_5px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_0_5px_rgba(255,255,255,0.1)] hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors text-foreground">
               Documentation
-            </button>
+            </Link>
           </div>
         </div>
 
