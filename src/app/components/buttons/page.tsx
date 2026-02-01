@@ -17,6 +17,7 @@ const buttonComponents = [
   { id: "button-group", name: "Button Group", href: "/components/buttons/group" },
   { id: "button-social", name: "Button Social", href: "/components/buttons/social" },
   { id: "button-gradient", name: "Button Gradient", href: "/components/buttons/gradient" },
+  { id: "button-glass", name: "Button Glass", href: "/components/buttons/glass" },
 ];
 
 // Code for preview
