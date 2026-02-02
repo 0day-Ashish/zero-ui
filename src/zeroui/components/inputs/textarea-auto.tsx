@@ -36,7 +36,7 @@ export default function TextareaAuto({
 
   useEffect(() => {
     handleResize();
-  }, [internalValue, value]); // Resize when value changes
+  }, [internalValue, value]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInternalValue(e.target.value);

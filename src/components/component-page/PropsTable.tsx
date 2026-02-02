@@ -4,6 +4,7 @@ interface Prop {
   name: string;
   type: string;
   default: string;
+  description?: string;
 }
 
 interface PropsTableProps {
@@ -27,6 +28,9 @@ export default function PropsTable({ props }: PropsTableProps) {
               <th className="text-left px-6 py-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">
                 default
               </th>
+              <th className="text-left px-6 py-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                description
+              </th>
             </tr>
           </thead>
           <tbody className="bg-white dark:bg-zinc-950">
@@ -49,6 +53,9 @@ export default function PropsTable({ props }: PropsTableProps) {
                 </td>
                 <td className="px-6 py-4 text-sm font-mono text-zinc-700 dark:text-zinc-300">
                   {prop.default}
+                </td>
+                <td className="px-6 py-4 text-sm text-zinc-600 dark:text-zinc-400">
+                  {prop.description || "-"}
                 </td>
               </tr>
             ))}
