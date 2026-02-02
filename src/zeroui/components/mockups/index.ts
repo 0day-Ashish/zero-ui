@@ -1,0 +1,9 @@
+export { default as iPhoneMockup } from "./iphone-mockup";
+export { default as iPadMockup } from "./ipad-mockup";
+export { default as MacBookMockup } from "./macbook-mockup";
+export { default as iMacMockup } from "./imac-mockup";
+export { default as AppleWatchMockup } from "./apple-watch-mockup";
+export { default as AndroidMockup } from "./android-mockup";
+export { default as BrowserMockup } from "./browser-mockup";
+export { default as WindowMockup } from "./window-mockup";
+export { default as TerminalMockup } from "./terminal-mockup";
