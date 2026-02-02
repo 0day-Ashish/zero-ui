@@ -16,6 +16,7 @@ export * from "./progress";
 // Avatars
 export * from "./avatars";
 
+<<<<<<< Updated upstream
 // Modals
 export * from "./modals";
 
@@ -30,3 +31,13 @@ export * from "./sliders";
 
 // Alerts
 export * from "./alerts";
+=======
+// Tables
+export * from "./tables";
+
+// Switches
+export * from "./switches";
+
+// Breadcrumbs
+export * from "./breadcrumbs";
+>>>>>>> Stashed changes
