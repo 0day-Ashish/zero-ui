@@ -1,8 +1,6 @@
-// Buttons
 export * from "./buttons";
-
-// Inputs
 export * from "./inputs";
-
-// Tooltips
 export * from "./tooltips";
+export * from "./tabs";
+export * from "./pagination";
+export * from "./accordions";

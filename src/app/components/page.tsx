@@ -84,7 +84,7 @@ const components: ComponentItem[] = [
     name: "Accordions",
     href: "/components/accordions",
     description: "Collapsible sections",
-    count: 5,
+    count: 7,
     image: "/assets/accordions.png"
   },
   {

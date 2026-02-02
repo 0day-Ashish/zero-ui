@@ -4,7 +4,7 @@ import React from "react";
 
 interface ButtonBasicProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "outline" | "ghost" | "destructive" | "link" | "secondary";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "icon";
   children: React.ReactNode;
 }
 
@@ -37,6 +37,7 @@ export default function Button({
     sm: "px-4 py-1.5 text-sm",
     md: "px-6 py-2 text-sm",
     lg: "px-10 py-2 text-base",
+    icon: "h-9 w-9 p-0 text-sm",
   };
 
   return (

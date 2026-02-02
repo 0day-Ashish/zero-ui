@@ -15,6 +15,9 @@ const tooltipComponents = [
   { id: "tooltip-glass", name: "Tooltip Glass", href: "/components/tooltips/glass" },
   { id: "tooltip-neon", name: "Tooltip Neon", href: "/components/tooltips/neon" },
   { id: "tooltip-minimal", name: "Tooltip Minimal", href: "/components/tooltips/minimal" },
+  { id: "tooltip-hologram", name: "Tooltip Hologram", href: "/components/tooltips/hologram" },
+  { id: "tooltip-glitch", name: "Tooltip Glitch", href: "/components/tooltips/glitch" },
+  { id: "tooltip-smart", name: "Tooltip Smart", href: "/components/tooltips/smart" },
 ];
 
 const manualSteps = [

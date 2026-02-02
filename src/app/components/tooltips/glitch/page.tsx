@@ -7,7 +7,7 @@ import {
   InstallationTabs,
   PropsTable,
 } from "@/components/component-page";
-import { TooltipBase } from "@/zeroui/components/tooltips";
+import { TooltipGlitch } from "@/zeroui/components/tooltips";
 import { Button } from "@/zeroui/components/buttons";
 
 const tooltipComponents = [
@@ -24,48 +24,40 @@ const manualSteps = [
   {
     title: "Copy the component code",
     description: "Copy the code for the tooltip component.",
-    filename: "components/tooltips/tooltip-base.tsx",
-    code: `// See src/zeroui/components/tooltips/tooltip-base.tsx`,
+    filename: "components/tooltips/tooltip-glitch.tsx",
+    code: `// See src/zeroui/components/tooltips/tooltip-glitch.tsx`,
   },
 ];
 
-export default function TooltipBasePage() {
+export default function TooltipGlitchPage() {
   return (
     <ComponentPageLayout
-      componentName="Tooltip Base"
-      description="A clean, accessible tooltip component."
+      componentName="Tooltip Glitch"
+      description="Cyberpunk-inspired glitch effect tooltip."
       componentItems={tooltipComponents}
-      activeComponentId="tooltip-base"
-      prevComponent={{ name: "Inputs", href: "/components/inputs" }}
-      nextComponent={{ name: "Tooltip Glass", href: "/components/tooltips/glass" }}
+      activeComponentId="tooltip-glitch"
+      prevComponent={{ name: "Tooltip Hologram", href: "/components/tooltips/hologram" }}
+      nextComponent={{ name: "Tooltip Smart", href: "/components/tooltips/smart" }}
     >
       <div className="space-y-4">
-        <ComponentPreview code={`<TooltipBase content="This is a tooltip">
-  <Button>Hover me</Button>
-</TooltipBase>
+        <ComponentPreview code={`<TooltipGlitch content="ERROR DETECTED" position="right">
+  <Button variant="destructive">Delete System32</Button>
+</TooltipGlitch>`}>
+          <div className="flex gap-8 items-center justify-center p-20 bg-zinc-900 rounded-xl relative overflow-hidden">
 
-<TooltipBase content="Bottom tooltip" position="bottom">
-  <Button variant="outline">Bottom</Button>
-</TooltipBase>`}>
-          <div className="flex gap-4 items-center justify-center p-12">
-            <TooltipBase content="Top tooltip (default)">
-              <Button>Top</Button>
-            </TooltipBase>
-            <TooltipBase content="Bottom tooltip" position="bottom">
-              <Button variant="outline">Bottom</Button>
-            </TooltipBase>
-            <TooltipBase content="Left tooltip" position="left">
-              <Button variant="ghost">Left</Button>
-            </TooltipBase>
-            <TooltipBase content="Right tooltip" position="right">
-              <Button variant="secondary">Right</Button>
-            </TooltipBase>
+            <TooltipGlitch content="ACCESS GRANTED" position="top">
+              <Button className="bg-zinc-800 border-l-4 border-green-500 rounded-none hover:bg-zinc-700">Login</Button>
+            </TooltipGlitch>
+
+            <TooltipGlitch content="CRITICAL FAILURE" position="bottom">
+              <Button className="bg-zinc-800 border-l-4 border-red-500 rounded-none hover:bg-zinc-700">Reset</Button>
+            </TooltipGlitch>
           </div>
         </ComponentPreview>
       </div>
 
       <InstallationTabs
-        componentName="tooltip-base"
+        componentName="tooltip-glitch"
         dependencies={["clsx", "tailwind-merge"]}
         manualSteps={manualSteps}
       />
@@ -74,7 +66,6 @@ export default function TooltipBasePage() {
         props={[
           { name: "content", type: "string", default: "-" },
           { name: "position", type: '"top" | "bottom" | "left" | "right"', default: '"top"' },
-          { name: "className", type: "string", default: '""' },
         ]}
       />
     </ComponentPageLayout>

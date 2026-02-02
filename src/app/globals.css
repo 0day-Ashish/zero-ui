@@ -383,7 +383,86 @@ footer {
   .animate-ripple,
   .animate-noise,
   .animate-glow-pulse,
-  .animate-glow-sway {
+  .animate-glow-sway,
+  .animate-glitch-1,
+  .animate-glitch-2 {
     animation: none;
   }
+}
+
+/* Glitch Animations */
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 80%);
+    transform: translate(0);
+  }
+
+  20% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 85%, 20% 85%, 5% 70%);
+    transform: translate(-2px, 1px);
+  }
+
+  40% {
+    clip-path: polygon(0 50%, 100% 40%, 100% 85%, 20% 85%, 0 70%);
+    transform: translate(2px, -2px);
+  }
+
+  60% {
+    clip-path: polygon(0 30%, 100% 30%, 100% 75%, 20% 75%, 0 60%);
+    transform: translate(-1px, 2px);
+  }
+
+  80% {
+    clip-path: polygon(0 10%, 100% 5%, 100% 95%, 20% 95%, 0 85%);
+    transform: translate(1px, -1px);
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 80%);
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 80%);
+    transform: translate(0);
+  }
+
+  25% {
+    clip-path: polygon(0 25%, 100% 35%, 100% 75%, 20% 75%, 5% 65%);
+    transform: translate(2px, 1px);
+  }
+
+  50% {
+    clip-path: polygon(0 55%, 100% 45%, 100% 90%, 20% 90%, 0 75%);
+    transform: translate(-2px, -1px);
+  }
+
+  75% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 80%, 20% 80%, 0 70%);
+    transform: translate(1px, 2px);
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 80%);
+    transform: translate(0);
+  }
+}
+
+.animate-glitch-1 {
+  animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.animate-glitch-2 {
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+/* Utilities */
+.clip-path-slant {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.clip-path-slant-active {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
 }
