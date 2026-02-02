@@ -12,9 +12,19 @@ const components: ComponentItem[] = [
   { name: "Inputs", href: "/components/inputs", description: "Text and data entry fields", count: 8 },
   { name: "Cards", href: "/components/cards", description: "Content containers", count: 15 },
   { name: "Modals", href: "/components/modals", description: "Dialog overlays", count: 6 },
-  { name: "Alerts", href: "/components/alerts", description: "Notification messages", count: 10 },
+  {
+    name: "Alerts",
+    description: "Feedback messages and notifications.",
+    href: "/components/alerts",
+    count: 4,
+  },
   { name: "Badges", href: "/components/badges", description: "Status indicators", count: 8 },
-  { name: "Avatars", href: "/components/avatars", description: "User profile images", count: 5 },
+  {
+    name: "Avatars",
+    description: "User profile images and fallbacks.",
+    href: "/components/avatars",
+    count: 3,
+  },
   { name: "Tooltips", href: "/components/tooltips", description: "Hover info popups", count: 4 },
   { name: "Dropdowns", href: "/components/dropdowns", description: "Selection menus", count: 7 },
   { name: "Tabs", href: "/components/tabs", description: "Content navigation", count: 6 },
@@ -51,7 +61,7 @@ function ComponentCard({ name, href, description, count }: ComponentItem) {
         <div className="px-4 pt-2 pb-4">
           <h3 className="text-lg font-medium text-zinc-900 dark:text-white">
             {name}
-            
+
           </h3>
           <span className="text-sm text-zinc-600 dark:text-zinc-400">
             {description} | <strong>{count}+</strong> variations
