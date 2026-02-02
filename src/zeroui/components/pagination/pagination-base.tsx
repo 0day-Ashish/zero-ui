@@ -3,7 +3,32 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
-import { Button } from "@/zeroui/components/buttons";
+import { buttonBaseStyles, buttonVariants, buttonSizes } from "@/zeroui/components/buttons/button";
+
+type PaginationLinkProps = {
+  isActive?: boolean;
+  size?: keyof typeof buttonSizes;
+} & React.ComponentProps<"a">;
+
+const PaginationLink = ({
+  className,
+  isActive,
+  size = "icon",
+  ...props
+}: PaginationLinkProps) => (
+  <a
+    aria-current={isActive ? "page" : undefined}
+    className={cn(
+      buttonBaseStyles,
+      buttonVariants[isActive ? "outline" : "ghost"],
+      buttonSizes[size],
+      isActive && "bg-zinc-100 dark:bg-zinc-800",
+      className
+    )}
+    {...props}
+  />
+);
+PaginationLink.displayName = "PaginationLink";
 
 const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
@@ -35,25 +60,8 @@ const PaginationItem = React.forwardRef<
 ));
 PaginationItem.displayName = "PaginationItem";
 
-type PaginationLinkProps = {
-  isActive?: boolean;
-} & React.ComponentProps<typeof Button>;
 
-const PaginationLink = ({
-  className,
-  isActive,
-  size = "icon",
-  ...props
-}: PaginationLinkProps) => (
-  <Button
-    aria-current={isActive ? "page" : undefined}
-    variant={isActive ? "outline" : "ghost"}
-    size={size}
-    className={cn(isActive && "bg-zinc-100 dark:bg-zinc-800", className)}
-    {...props}
-  />
-);
-PaginationLink.displayName = "PaginationLink";
+
 
 const PaginationPrevious = ({
   className,
