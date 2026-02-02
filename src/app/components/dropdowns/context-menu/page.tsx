@@ -14,13 +14,13 @@ import {
   ContextMenuSeparator,
   ContextMenuLabel,
 } from "@/zeroui/components/dropdowns/context-menu";
-import { 
-  File, 
-  Folder, 
-  Trash, 
-  Copy, 
-  Edit, 
-  Share, 
+import {
+  File,
+  Folder,
+  Trash,
+  Copy,
+  Edit,
+  Share,
   Image as ImageIcon,
   Download,
   ExternalLink
@@ -114,14 +114,14 @@ export function ContextMenuDemo() {
                     </ContextMenuItem>
                     <ContextMenuSeparator />
                     <ContextMenuItem variant="destructive" icon={<Trash className="h-4 w-4" />}>
-                        Remove from Library
+                      Remove from Library
                     </ContextMenuItem>
                   </ContextMenuContent>
                 }
               >
                 <div className="group relative aspect-video w-64 overflow-hidden rounded-lg border border-zinc-200 shadow-sm transition-all hover:shadow-md dark:border-zinc-800">
                   <div className="absolute inset-0 flex items-center justify-center bg-zinc-100 text-zinc-400 dark:bg-zinc-800">
-                     <ImageIcon className="h-10 w-10 opacity-20" />
+                    <ImageIcon className="h-10 w-10 opacity-20" />
                   </div>
                   <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/5 dark:group-hover:bg-white/5" />
                   <div className="absolute inset-x-0 bottom-0 bg-white/90 p-2 text-xs font-medium text-zinc-600 backdrop-blur-sm dark:bg-black/80 dark:text-zinc-300">
@@ -164,13 +164,13 @@ import { createPortal } from "react-dom";
               {
                 name: "content",
                 type: "ReactNode",
-                defaultValue: "-",
+                default: "-",
                 description: "The content of the context menu (usually ContextMenuContent).",
               },
-               {
+              {
                 name: "children",
                 type: "ReactNode",
-                defaultValue: "-",
+                default: "-",
                 description: "The trigger area that listens for the right-click event.",
               },
             ]}

@@ -88,8 +88,8 @@ export function Dropdown({ children, className = "", trigger = "click" }: Dropdo
 
   return (
     <DropdownContext.Provider value={{ isOpen, setIsOpen, trigger, handleMouseEnter, handleMouseLeave }}>
-      <div 
-        ref={dropdownRef} 
+      <div
+        ref={dropdownRef}
         className={`relative inline-block text-left ${className}`}
         onMouseLeave={handleMouseLeave} // Handle leaving both trigger and menu container
       >
@@ -113,15 +113,15 @@ export function DropdownTrigger({ children, className = "", asChild = false, ...
     return React.cloneElement(children as React.ReactElement<any>, {
       ...props,
       onClick: (e: React.MouseEvent) => {
-        children.props.onClick?.(e);
+        (children as React.ReactElement<any>).props.onClick?.(e);
         handleClick(e);
       },
       onMouseEnter: (e: React.MouseEvent) => {
-        children.props.onMouseEnter?.(e);
+        (children as React.ReactElement<any>).props.onMouseEnter?.(e);
         handleMouseEnter();
         props.onMouseEnter?.(e as any);
       },
-      className: cn(children.props.className, className),
+      className: cn((children as React.ReactElement<any>).props.className, className),
       "aria-expanded": isOpen,
     });
   }
@@ -171,9 +171,9 @@ export function DropdownMenu({
     return React.Children.map(children, (child, index) => {
       if (React.isValidElement(child)) {
         return React.cloneElement(child as React.ReactElement<any>, {
-          className: cn(child.props.className, "animate-menu-item-slide-in"),
+          className: cn((child as React.ReactElement<any>).props.className, "animate-menu-item-slide-in"),
           style: {
-            ...child.props.style,
+            ...(child as React.ReactElement<any>).props.style,
             animationDelay: `${index * 0.1}s`,
           },
         });
@@ -274,25 +274,25 @@ export function DropdownSub({ children }: { children: React.ReactNode }) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      setIsOpen(true);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-      timeoutRef.current = setTimeout(() => {
-        setIsOpen(false);
-      }, 100);
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 100);
   };
 
   useEffect(() => {
-      return () => {
-          if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      };
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
   return (
     <DropdownSubContext.Provider value={{ isOpen, setIsOpen, handleMouseEnter, handleMouseLeave }}>
-      <div 
+      <div
         className="relative"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

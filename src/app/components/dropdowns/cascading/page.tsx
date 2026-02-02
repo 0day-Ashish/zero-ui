@@ -98,8 +98,8 @@ export function CascadingMenu() {
       <div className="space-y-12">
         <section>
           <div className="mb-6 p-4 bg-zinc-100 dark:bg-zinc-800/50 rounded-lg text-sm text-zinc-600 dark:text-zinc-400">
-            <strong>Concept:</strong> A Cascading (or Nested) Menu allows you to tuck away secondary options under a parent item. 
-            This is similar to the "Share" or "Open With" menus you see in desktop applications. 
+            <strong>Concept:</strong> A Cascading (or Nested) Menu allows you to tuck away secondary options under a parent item.
+            This is similar to the "Share" or "Open With" menus you see in desktop applications.
             It keeps the primary menu short and easy to scan.
           </div>
           <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-4">
@@ -110,45 +110,45 @@ export function CascadingMenu() {
           </p>
           <ComponentPreview code={cascadingCode}>
             <div className="flex justify-center p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
-                <Dropdown>
-                    <DropdownTrigger>
-                        <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
-                        File Options <ChevronDown className="h-4 w-4" />
-                        </Button>
-                    </DropdownTrigger>
-                    <DropdownMenu width="w-56">
-                        <DropdownSub>
-                            <DropdownSubTrigger icon={<Users className="h-4 w-4" />}>
-                                Invite Users
-                            </DropdownSubTrigger>
-                            <DropdownSubContent>
-                                <DropdownItem icon={<Mail className="h-4 w-4" />}>
-                                    Email
-                                </DropdownItem>
-                                <DropdownItem icon={<UserPlus className="h-4 w-4" />}>
-                                    Connect Contact
-                                </DropdownItem>
-                                <DropdownSeparator />
-                                <DropdownSub>
-                                    <DropdownSubTrigger icon={<Plus className="h-4 w-4" />}>
-                                        More Options
-                                    </DropdownSubTrigger>
-                                    <DropdownSubContent>
-                                        <DropdownItem>Import from CSV</DropdownItem>
-                                        <DropdownItem>Sync with Cloud</DropdownItem>
-                                    </DropdownSubContent>
-                                </DropdownSub>
-                            </DropdownSubContent>
-                        </DropdownSub>
-                        <DropdownSeparator />
-                        
-                        <DropdownItem icon={<File className="h-4 w-4" />}>New File</DropdownItem>
-                        <DropdownItem icon={<Folder className="h-4 w-4" />}>Open Folder...</DropdownItem>
-                        
-                        <DropdownSeparator />
-                        <DropdownItem>Properties</DropdownItem>
-                    </DropdownMenu>
-                </Dropdown>
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
+                    File Options <ChevronDown className="h-4 w-4" />
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu width="w-56">
+                  <DropdownSub>
+                    <DropdownSubTrigger icon={<Users className="h-4 w-4" />}>
+                      Invite Users
+                    </DropdownSubTrigger>
+                    <DropdownSubContent>
+                      <DropdownItem icon={<Mail className="h-4 w-4" />}>
+                        Email
+                      </DropdownItem>
+                      <DropdownItem icon={<UserPlus className="h-4 w-4" />}>
+                        Connect Contact
+                      </DropdownItem>
+                      <DropdownSeparator />
+                      <DropdownSub>
+                        <DropdownSubTrigger icon={<Plus className="h-4 w-4" />}>
+                          More Options
+                        </DropdownSubTrigger>
+                        <DropdownSubContent>
+                          <DropdownItem>Import from CSV</DropdownItem>
+                          <DropdownItem>Sync with Cloud</DropdownItem>
+                        </DropdownSubContent>
+                      </DropdownSub>
+                    </DropdownSubContent>
+                  </DropdownSub>
+                  <DropdownSeparator />
+
+                  <DropdownItem icon={<File className="h-4 w-4" />}>New File</DropdownItem>
+                  <DropdownItem icon={<Folder className="h-4 w-4" />}>Open Folder...</DropdownItem>
+
+                  <DropdownSeparator />
+                  <DropdownItem>Properties</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
             </div>
           </ComponentPreview>
         </section>
@@ -183,19 +183,19 @@ export function DropdownSubContent({ children }) { ... }`
               {
                 name: "DropdownSub",
                 type: "Component",
-                defaultValue: "-",
+                default: "-",
                 description: "Wrapper for the submenu specific state.",
               },
-               {
+              {
                 name: "DropdownSubTrigger",
                 type: "Component",
-                defaultValue: "-",
+                default: "-",
                 description: "The item that toggles the submenu. Includes an automatic chevron icon.",
               },
-               {
+              {
                 name: "DropdownSubContent",
                 type: "Component",
-                defaultValue: "-",
+                default: "-",
                 description: "The container for submenu items, automatically positioned to the right.",
               },
             ]}

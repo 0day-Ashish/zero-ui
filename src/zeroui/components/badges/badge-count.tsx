@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 interface BadgeCountProps extends React.HTMLAttributes<HTMLSpanElement> {
   count: number;
   max?: number;
-  variant?: "default" | "destructive" | "success" | "warning";
+  variant?: "default" | "destructive" | "success" | "warning" | "secondary";
   size?: "sm" | "md" | "lg";
   showZero?: boolean;
 }
@@ -24,6 +24,7 @@ export default function BadgeCount({
     destructive: "bg-red-500 text-white",
     success: "bg-emerald-500 text-white",
     warning: "bg-amber-500 text-white",
+    secondary: "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100",
   };
 
   const sizes = {

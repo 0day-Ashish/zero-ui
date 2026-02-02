@@ -147,7 +147,7 @@ export function HoverDropdown() {
             Trigger on Hover
           </h2>
           <p className="mb-6 text-zinc-600 dark:text-zinc-400">
-            Set the <code>trigger</code> prop to <code>"hover"</code> to enable open-on-hover behavior. 
+            Set the <code>trigger</code> prop to <code>"hover"</code> to enable open-on-hover behavior.
             Includes a small delay before closing to prevent accidental closures when moving the mouse.
           </p>
           <ComponentPreview code={hoverCode}>
@@ -200,24 +200,24 @@ export function HoverDropdown() {
           <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-4">
             Bounce Animation
           </h2>
-           <p className="mb-6 text-zinc-600 dark:text-zinc-400">
+          <p className="mb-6 text-zinc-600 dark:text-zinc-400">
             Use <code>animation="bounce"</code> for a playful, physics-based opening animation. Perfect for more casual or creative interfaces.
           </p>
           <ComponentPreview code={bounceCode}>
-             <div className="flex flex-wrap gap-8 justify-center items-start min-h-[250px] p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
+            <div className="flex flex-wrap gap-8 justify-center items-start min-h-[250px] p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
                   <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
                     Bounce <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownTrigger>
-                 <DropdownMenu width="w-48" animation="bounce">
+                <DropdownMenu width="w-48" animation="bounce">
                   <DropdownItem>New File</DropdownItem>
                   <DropdownItem>Open Folder</DropdownItem>
                   <DropdownItem>Save Workspace</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-             </div>
+            </div>
           </ComponentPreview>
         </section>
 
@@ -225,7 +225,7 @@ export function HoverDropdown() {
           <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-4">
             Staggered Entrance
           </h2>
-           <p className="mb-6 text-zinc-600 dark:text-zinc-400">
+          <p className="mb-6 text-zinc-600 dark:text-zinc-400">
             Use <code>animation="staggered"</code> to make menu items slide in one by one. This adds a premium feel to larger menus.
           </p>
           <ComponentPreview code={`// 1. Add keyframes to CSS
@@ -250,7 +250,7 @@ export function HoverDropdown() {
     <DropdownItem>Item 3</DropdownItem>
   </DropdownMenu>
 </Dropdown>`}>
-             <div className="flex justify-center items-start min-h-[300px] p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
+            <div className="flex justify-center items-start min-h-[300px] p-8 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-sm">
               <Dropdown trigger="hover">
                 <DropdownTrigger asChild>
                   <Button variant="outline" className="gap-2 border-2 border-zinc-800/20 dark:border-white/20">
@@ -258,14 +258,14 @@ export function HoverDropdown() {
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu width="w-56" animation="staggered">
-                  <DropdownItem icon={<Bell className="h-4 w-4"/>}>Updates</DropdownItem>
-                  <DropdownItem icon={<Mail className="h-4 w-4"/>}>Messages</DropdownItem>
-                  <DropdownItem icon={<Users className="h-4 w-4"/>}>Team</DropdownItem>
+                  <DropdownItem icon={<Bell className="h-4 w-4" />}>Updates</DropdownItem>
+                  <DropdownItem icon={<Mail className="h-4 w-4" />}>Messages</DropdownItem>
+                  <DropdownItem icon={<Users className="h-4 w-4" />}>Team</DropdownItem>
                   <DropdownSeparator />
-                  <DropdownItem icon={<Settings className="h-4 w-4"/>}>Settings</DropdownItem>
+                  <DropdownItem icon={<Settings className="h-4 w-4" />}>Settings</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-             </div>
+            </div>
           </ComponentPreview>
         </section>
 
@@ -518,13 +518,13 @@ export function DropdownSeparator({ className = "" }: { className?: string }) {
               {
                 name: "trigger",
                 type: '"click" | "hover"',
-                defaultValue: '"click"',
+                default: '"click"',
                 description: "Determines the event that opens the dropdown.",
               },
-               {
+              {
                 name: "animation",
                 type: '"default" | "bounce" | "staggered"',
-                defaultValue: '"default"',
+                default: '"default"',
                 description: "The animation style for the dropdown opening. 'staggered' animates items individually.",
               },
             ]}
