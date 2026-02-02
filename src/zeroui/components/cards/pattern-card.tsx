@@ -11,7 +11,7 @@ interface PatternCardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function PatternCard({
   pattern = "dots",
-  patternColor = "rgba(0, 0, 0, 0.1)", // Default for light mode, override for dark
+  patternColor = "rgba(0, 0, 0, 0.1)",
   maskGradient = "linear-gradient(to bottom right, white, transparent)",
   children,
   className = "",
