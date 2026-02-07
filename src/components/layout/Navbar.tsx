@@ -22,6 +22,22 @@ const navLinks = [
     ],
   },
 
+  {
+    href: "/featured",
+    label: "Featured",
+    subLinks: [
+      { href: "/featured/profile-cards", label: "Profile Cards", description: "User profile cards" },
+      { href: "/featured/music-cards", label: "Music Cards", description: "Music player cards" },
+      { href: "/featured/calendar", label: "Calendar", description: "Date picker component" },
+      { href: "/featured/wallet", label: "Wallet", description: "Crypto wallet card" },
+      { href: "/featured/ai-input", label: "AI Input", description: "AI chat input" },
+      { href: "/featured/github-calendar", label: "Github Calendar", description: "Contribution graph" },
+      { href: "/featured/otp-input", label: "OTP Input", description: "One-time password input" },
+      { href: "/featured/priority-cards", label: "Priority Cards", description: "Task priority cards" },
+      { href: "/featured/upload-card", label: "Upload Card", description: "File upload component" },
+      { href: "/featured/navbars", label: "Navbars", description: "Navigation components" },
+    ],
+  },
 
   {
     href: "/components",

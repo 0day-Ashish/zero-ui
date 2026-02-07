@@ -3,7 +3,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
-import { buttonBaseStyles, buttonVariants, buttonSizes } from "@/zeroui/components/buttons/button";
+import { buttonBaseStyles, buttonVariants, buttonSizes } from "../buttons/button";
 
 type PaginationLinkProps = {
   isActive?: boolean;
