@@ -7,7 +7,7 @@ import TemplateShowcase from "@/components/ui/TemplateShowcase";
 import FAQSection from "@/components/ui/FAQSection";
 import WaitlistButton from "@/components/ui/WaitlistButton";
 import Link from "next/link";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, Globe } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -99,7 +99,13 @@ export default function LandingPage() {
         <div className="flex flex-wrap justify-center gap-12">
           {/* Dev 1 */}
           <div className="flex items-center gap-4">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 border-2 border-zinc-300 dark:border-zinc-800 shrink-0" />
+            <Image
+              src="/assets/ashish.webp"
+              alt="Ashish Ranjan Das"
+              width={80}
+              height={80}
+              className="w-20 h-20 rounded-full border-2 border-zinc-300 dark:border-zinc-800 shrink-0"
+            />
             <div>
               <h3 className="text-lg font-medium text-zinc-900 dark:text-white">Ashish Ranjan Das</h3>
               <p className="text-sm text-zinc-500 mb-2">Full Stack Web3 Developer</p>
@@ -113,13 +119,22 @@ export default function LandingPage() {
                 <a href="https://twitter.com/Ashish_06" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
                   <Twitter className="w-4 h-4" />
                 </a>
+                <a href="https://arddev.vercel.app" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                  <Globe className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>
 
           {/* Dev 2 */}
           <div className="flex items-center gap-4">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 border-2 border-zinc-300 dark:border-zinc-800 shrink-0" />
+            <Image
+              src="https://github.com/subham12r.png"
+              alt="Subham Karmakar"
+              width={80}
+              height={80}
+              className="w-20 h-20 rounded-full border-2 border-zinc-300 dark:border-zinc-800 shrink-0"
+            />
             <div>
               <h3 className="text-lg font-medium text-zinc-900 dark:text-white">Subham Karmakar</h3>
               <p className="text-sm text-zinc-500 mb-2">Full Stack Developer</p>
@@ -132,6 +147,9 @@ export default function LandingPage() {
                 </a>
                 <a href="https://twitter.com/subham12r" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
                   <Twitter className="w-4 h-4" />
+                </a>
+                <a href="#" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                  <Globe className="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -152,6 +170,9 @@ export default function LandingPage() {
                 </a>
                 <a href="#" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
                   <Twitter className="w-4 h-4" />
+                </a>
+                <a href="#" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                  <Globe className="w-4 h-4" />
                 </a>
               </div>
             </div>
