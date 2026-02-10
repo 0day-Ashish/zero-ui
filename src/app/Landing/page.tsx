@@ -157,15 +157,21 @@ export default function LandingPage() {
 
           {/* Dev 3 */}
           <div className="flex items-center gap-4">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 border-2 border-zinc-300 dark:border-zinc-800 shrink-0" />
+            <Image
+              src="/assets/aryadeep.jpg"
+              alt="Aryadeep Roy"
+              width={80}
+              height={80}
+              className="w-20 h-20 rounded-full border-2 border-zinc-300 dark:border-zinc-800 shrink-0 object-cover object-top p-0.5 bg-zinc-100 dark:bg-zinc-800"
+            />
             <div>
               <h3 className="text-lg font-medium text-zinc-900 dark:text-white">Aryadeep Roy</h3>
               <p className="text-sm text-zinc-500 mb-2">Full-Stack Developer</p>
               <div className="flex items-center gap-3">
-                <a href="#" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                <a href="https://github.com/arya232006" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
                   <Github className="w-4 h-4" />
                 </a>
-                <a href="#" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/aryadeep-roy2371/" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a href="#" className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
